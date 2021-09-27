@@ -26,10 +26,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - id: deploy
-        uses: kuldeep-test/test-composite@v2
+
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          client: ${{ env.client }}
-          stage: ${{ env.stage }}
-          project: ${{ env.project }}
+          repository: kuldeep-test/kuldeep-test
+          path: './'
