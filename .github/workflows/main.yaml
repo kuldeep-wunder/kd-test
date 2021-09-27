@@ -30,5 +30,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: kuldeep-test/kuldeep-test
-          path: './'
+          repository: kuldeep-test/test-composite
+          token: ${{ secrets.GH_TOKEN }}
+          path: .github/actions/custom-action
+
+      - name: 'Perform common steps'
+        uses: ./.github/actions/custom-action
+        id: custom-action
+        with:
+          stage: "prod"
+          client: "All"
