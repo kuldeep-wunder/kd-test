@@ -30,7 +30,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: kuldeep-test/test-composite
+          repository: kuldeep-wunder/test-composite
           token: ${{ secrets.GH_TOKEN }}
           path: .github/actions/custom-action
 
