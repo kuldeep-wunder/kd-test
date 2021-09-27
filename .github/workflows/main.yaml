@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: deploy
-        uses: actions/test-composite@v2
+        uses: kuldeep-test/test-composite@v2
         with:
           client: ${{ env.client }}
           stage: ${{ env.stage }}
