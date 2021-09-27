@@ -1,0 +1,35 @@
+name: Webhook Disptacher Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      client:
+        description: 'client name, for all use: All'
+        required: true
+        default: 'All'
+      stage:
+        description: 'stage i.e. staging or prod only '
+        required: true
+        default: 'prod'
+      project:
+        description: 'Project or microservice name'
+        required: true
+        default: 'webhook_dispatcher'
+
+jobs:
+  deployment:
+
+    env:
+      project: ${{ github.event.inputs.project }}
+      stage: ${{ github.event.inputs.stage }}
+      client: ${{ github.event.inputs.client }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - id: deploy
+        uses: kuldeep-wunder/test-composite@v2
+        with:
+          client: ${{ env.client }}
+          stage: ${{ env.stage }}
+          project: ${{ env.project }}
