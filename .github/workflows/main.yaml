@@ -40,3 +40,4 @@ jobs:
         with:
           stage: "prod"
           client: "All"
+          project: "webhook_dispatcher"
